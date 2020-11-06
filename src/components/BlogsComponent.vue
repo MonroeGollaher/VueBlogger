@@ -2,6 +2,7 @@
   <div class="blogs-component col-3 card shadow-lg">
     <h1>{{ blogsProp.title }}</h1>
     <p>{{ blogsProp.body }}</p>
+    <p>Author: {{ blogsProp.creator.name }}</p>
   </div>
 </template>
 

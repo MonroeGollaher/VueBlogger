@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // @ts-ignore
+import ActiveBlog from '../pages/ActiveBlog.vue'
+// @ts-ignore
 import MyBlogsComponent from '../components/MyBlogsComponent.vue'
 // @ts-ignore
 import Home from '../pages/Home.vue'
@@ -20,9 +22,14 @@ const routes = [
     beforeEnter: Auth0Provider.authGuard
   },
   {
-    path: '/profile',
+    path: '/profile/myblogs',
     name: 'MyBlogsPage',
     component: MyBlogsComponent
+  },
+  {
+    path: '/activeblog/:id',
+    name: 'ActiveBlogPage',
+    component: ActiveBlog
   }
 ]
 

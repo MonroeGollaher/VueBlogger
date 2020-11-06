@@ -1,15 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark align-items-center">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img
-          alt="Vue logo"
-          src="../assets/logo.png"
-          width="25"
-        />
-      </div>
       <div class="text-light text-shadow">
-        <h3>ue Template</h3>
+        <h3>Bloggz</h3>
       </div>
     </router-link>
     <button
@@ -28,6 +21,11 @@
         <li class="nav-item">
           <router-link :to="{ name: 'Home' }" class="nav-link">
             Home
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'MyBlogsPage' }" class="nav-link">
+            My Bloggz
           </router-link>
         </li>
       </ul>
