@@ -1,5 +1,5 @@
 <template>
-  <div class="blogs-component col-3 card shadow-lg text-center" v-if="blogsProp.creator">
+  <div class="blogs-component col-3 card shadow-lg text-center rounded" v-if="blogsProp.creator">
     <h2>{{ blogsProp.title }}</h2>
     <p>{{ blogsProp.body }}</p>
     <p>Author: {{ blogsProp.creator.name }}</p>

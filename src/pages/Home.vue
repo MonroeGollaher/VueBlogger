@@ -1,14 +1,14 @@
 <template>
   <div class="home">
-    <div class="jumbotron jumbotron-fluid text-center">
+    <div class="jumbotron jumbotron-fluid text-center mainPage">
       <div class="container">
-        <h1 class="display-4">
+        <h1 class="display-4 text-light">
           Bloggz
         </h1>
-        <p class="lead">
+        <p class="lead text-light">
           See what others are saying
         </p>
-        <button type="button" class="btn btn-primary border-0" data-toggle="modal" data-target="#blogModal">
+        <button type="button" class="btn btn-primary border-0 background-none" data-toggle="modal" data-target="#blogModal">
           Create Blog
         </button>
 

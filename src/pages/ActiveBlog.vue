@@ -1,10 +1,12 @@
 <template>
   <div class="activeBlog-page">
-    <div class="row justify-content-center text-center">
-      <div class="col-8 card shadow-lg">
-        <h1>{{ activeBlog.title }}</h1><span v-if="activeBlog.creatorEmail"><button type="button" class="btn btn-secondary justify-self-end" data-toggle="modal" data-target="#blogModal">
-          Edit
-        </button><button class="btn btn-danger" @click="removeBlog">&times;</button></span>
+    <div class="row d-flex justify-content-center align-items-center text-center currentblog">
+      <div class="col-6 card shadow-lg rounded">
+        <h1 class="mr-5">
+          {{ activeBlog.title }}<span v-if="activeBlog.creatorEmail"><button type="button" class="btn btn-secondary justify-self-end" data-toggle="modal" data-target="#blogModal">
+            Edit
+          </button><button class="btn btn-danger" @click="removeBlog">&times;</button></span>
+        </h1>
         <p>{{ activeBlog.body }}</p>
         <p>{{ comments.body }}</p>
         <h1>Comments:</h1>
@@ -43,15 +45,16 @@
           </div>
         </form>
 
+        <!-- Comment Cpmponent  -->
+        <comments-component v-for="comments in comments" :key="comments.body" :comments-prop="comments" />
+
         <!-- Add Comment Modal -->
-        <form class="form-group d-flex justify-content-around" @submit.prevent="addComment">
-          <input type="text" name="comment" placeholder="Add comment?" v-model="state.newComment.body">
+        <form class="form-group d-flex justify-content-center mt-3" @submit.prevent="addComment">
+          <input type="text" name="comment" placeholder="Add comment" v-model="state.newComment.body">
           <button class="btn btn-info" type="submit">
             &#43;
           </button>
         </form>
-        <!-- Comment Cpmponent  -->
-        <comments-component v-for="comments in comments" :key="comments.body" :comments-prop="comments" />
       </div>
     </div>
   </div>
