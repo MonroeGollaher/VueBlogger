@@ -23,11 +23,6 @@
             Home
           </router-link>
         </li>
-        <li>
-          <router-link :to="{ name: 'MyBlogsPage' }" class="nav-link">
-            My Bloggz
-          </router-link>
-        </li>
       </ul>
       <span class="navbar-text">
         <button

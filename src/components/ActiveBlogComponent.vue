@@ -1,6 +1,5 @@
 <template>
   <div class="activeblog-component">
-    <h2>This is an active blog</h2>
   </div>
 </template>
 

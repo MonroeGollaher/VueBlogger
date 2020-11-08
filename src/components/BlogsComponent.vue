@@ -1,8 +1,13 @@
 <template>
-  <div class="blogs-component col-3 card shadow-lg">
-    <h1>{{ blogsProp.title }}</h1>
+  <div class="blogs-component col-3 card shadow-lg text-center" v-if="blogsProp.creator">
+    <h2>{{ blogsProp.title }}</h2>
     <p>{{ blogsProp.body }}</p>
     <p>Author: {{ blogsProp.creator.name }}</p>
+  </div>
+  <div class="blogs-component col-3 card shadow-lg text-center" v-else>
+    <h2>{{ blogsProp.title }}</h2>
+    <p>{{ blogsProp.body }}</p>
+    <p>Author: {{ blogsProp.creatorEmail }}</p>
   </div>
 </template>
 

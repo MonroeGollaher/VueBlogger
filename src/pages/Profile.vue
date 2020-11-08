@@ -3,19 +3,29 @@
     <h1>Welcome {{ profile.name }}</h1>
     <img class="rounded" :src="profile.picture" alt="" />
     <p>{{ profile.email }}</p>
+    <div class="row">
+      <blog-component v-for="blog in userBlogs" :key="blog" :blog-prop="blog" />
+    </div>
   </div>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
+import { profileService } from '../services/ProfileService'
+import BlogComponent from '../components/BlogsComponent'
+import { blogsService } from '../services/BlogsService'
 export default {
   name: 'Profile',
   setup() {
+    onMounted(() => profileService.getProfile())
+    onMounted(() => blogsService.getMyBlogs())
     return {
-      profile: computed(() => AppState.profile)
+      profile: computed(() => AppState.profile),
+      userBlogs: computed(() => AppState.userBlogs)
     }
-  }
+  },
+  components: { BlogComponent }
 }
 </script>
 
