@@ -1,10 +1,10 @@
 <template>
-  <div class="blogs-component col-3 card shadow-lg text-center rounded" v-if="blogsProp.creator">
+  <div class="blogs-component col-3 card shadow p-1 mb-2 bg-white text-center rounded align-items-center" v-if="blogsProp.creator">
     <h2>{{ blogsProp.title }}</h2>
     <p>{{ blogsProp.body }}</p>
     <p>Author: {{ blogsProp.creator.name }}</p>
   </div>
-  <div class="blogs-component col-3 card shadow-lg text-center" v-else>
+  <div class="blogs-component col-3 card shadow p-1 mb-2 bg-white text-center align-items-center" v-else>
     <h2>{{ blogsProp.title }}</h2>
     <p>{{ blogsProp.body }}</p>
     <p>Author: {{ blogsProp.creatorEmail }}</p>

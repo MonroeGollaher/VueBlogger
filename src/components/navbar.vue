@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark align-items-center">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="text-light text-shadow">
-        <h3>Bloggz</h3>
+        <h3><i class="far fa-comments mr-3"></i>Bloggz</h3>
       </div>
     </router-link>
     <button

@@ -1,15 +1,32 @@
 <template>
   <div class="activeBlog-page">
     <div class="row d-flex justify-content-center align-items-center text-center currentblog">
-      <div class="col-6 card shadow-lg rounded">
+      <div class="col-6 card shadow-lg rounded overflow-auto">
+        <!-- <img :src="activeBlog.creator.picture" class="img-fluid" /> -->
         <h1 class="mr-5">
-          {{ activeBlog.title }}<span v-if="activeBlog.creatorEmail"><button type="button" class="btn btn-secondary justify-self-end" data-toggle="modal" data-target="#blogModal">
-            Edit
-          </button><button class="btn btn-danger" @click="removeBlog">&times;</button></span>
+          <u>{{ activeBlog.title }}</u>
         </h1>
+        <h4>By: {{ activeBlog.creatorEmail }}</h4>
         <p>{{ activeBlog.body }}</p>
-        <p>{{ comments.body }}</p>
-        <h1>Comments:</h1>
+        <button v-if="activeBlog.creatorEmail" type="button" class="btn close" data-toggle="modal" data-target="#blogModal">
+          <i class="far fa-edit"></i>
+        </button>
+        <button @click="removeBlog" v-if="activeBlog.creatorEmail" class="text-danger close">
+          <i class="fas fa-backspace"></i>
+        </button>
+
+        <h1>Comments<i class="fas fa-comments ml-3"></i></h1>
+        <!-- Comment Cpmponent  -->
+        <comments-component v-for="comments in comments" :key="comments.body" :comments-prop="comments" />
+
+        <!-- Add Comment -->
+        <form class="form-group d-flex justify-content-center mt-3" @submit.prevent="addComment">
+          <input type="text" name="comment" placeholder="Write a comment..." v-model="state.newComment.body">
+          <button class="btn border-0 bg-transparent" type="submit">
+            <i class="fas fa-reply"></i>
+          </button>
+        </form>
+
         <!-- Edit Modal -->
         <form @submit.prevent="editBlog">
           <div class="modal" tabindex="-1" role="dialog" id="blogModal">
@@ -43,17 +60,6 @@
               </div>
             </div>
           </div>
-        </form>
-
-        <!-- Comment Cpmponent  -->
-        <comments-component v-for="comments in comments" :key="comments.body" :comments-prop="comments" />
-
-        <!-- Add Comment Modal -->
-        <form class="form-group d-flex justify-content-center mt-3" @submit.prevent="addComment">
-          <input type="text" name="comment" placeholder="Add comment" v-model="state.newComment.body">
-          <button class="btn btn-info" type="submit">
-            &#43;
-          </button>
         </form>
       </div>
     </div>

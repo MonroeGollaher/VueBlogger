@@ -26,6 +26,7 @@ class BlogsService {
     try {
       const res = await api.get('blogs/' + blogId)
       AppState.activeBlog = res.data
+      console.log(res.data)
     } catch (error) {
       console.error(error)
     }
