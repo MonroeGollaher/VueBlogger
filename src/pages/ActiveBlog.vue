@@ -6,16 +6,18 @@
         <h1 class="mr-5">
           <u>{{ activeBlog.title }}</u>
         </h1>
-        <h4>By: {{ activeBlog.creatorEmail }}</h4>
-        <p>{{ activeBlog.body }}</p>
-        <button v-if="activeBlog.creatorEmail" type="button" class="btn close" data-toggle="modal" data-target="#blogModal">
+        <h5>By: {{ activeBlog.creatorEmail }}</h5>
+        <p class="mt-3">
+          {{ activeBlog.body }}
+        </p>
+        <button v-if="activeBlog.creatorEmail" type="button" class="btn" data-toggle="modal" data-target="#blogModal">
           <i class="far fa-edit"></i>
         </button>
-        <button @click="removeBlog" v-if="activeBlog.creatorEmail" class="text-danger close">
+        <button @click="removeBlog" v-if="activeBlog.creatorEmail" class="text-danger border-0 bg-transparent">
           <i class="fas fa-backspace"></i>
         </button>
 
-        <h1>Comments<i class="fas fa-comments ml-3"></i></h1>
+        <h2>Comments<i class="fas fa-comments ml-3"></i></h2>
         <!-- Comment Cpmponent  -->
         <comments-component v-for="comments in comments" :key="comments.body" :comments-prop="comments" />
 

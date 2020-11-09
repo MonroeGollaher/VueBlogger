@@ -88,6 +88,9 @@ export default {
       createBlog(newBlog) {
         console.log(state.newBlog.body, state.newBlog.title)
         blogsService.createBlog(state.newBlog)
+      },
+      getAllBlogs() {
+        blogsService.getAllBlogs()
       }
     }
   }
