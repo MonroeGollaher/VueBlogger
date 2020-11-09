@@ -44,9 +44,6 @@
                 </div>
                 <div class="modal-body">
                   <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">Content</span>
-                    </div>
                     <textarea class="form-control" aria-label="With textarea" v-model="state.editBlog.body">
                   </textarea>
                   </div>

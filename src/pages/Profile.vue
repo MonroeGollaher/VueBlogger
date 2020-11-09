@@ -4,7 +4,7 @@
     <img class="rounded" :src="profile.picture" alt="" />
     <p>{{ profile.email }}</p>
     <div class="row">
-      <blog-component v-for="blog in userBlogs" :key="blog" :blog-prop="blog" />
+      <blogs-component v-for="blog in userBlogs" :key="blog" :blogs-prop="blog" />
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import { profileService } from '../services/ProfileService'
-import BlogComponent from '../components/BlogsComponent'
+import BlogsComponent from '../components/BlogsComponent'
 import { blogsService } from '../services/BlogsService'
 export default {
   name: 'Profile',
@@ -25,7 +25,7 @@ export default {
       userBlogs: computed(() => AppState.userBlogs)
     }
   },
-  components: { BlogComponent }
+  components: { BlogsComponent }
 }
 </script>
 

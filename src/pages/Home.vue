@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="jumbotron jumbotron-fluid text-center mainPage">
-      <div class="container">
+      <div class="container align-content-center">
         <h1 class="display-4 text-light">
           Bloggz
         </h1>
